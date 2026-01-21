@@ -1,4 +1,4 @@
-/* 基础设置 */
+b/* 基础设置 */
 body, html {
     margin: 0;
     padding: 0;
@@ -6,6 +6,15 @@ body, html {
     height: 100vh;
     overflow: hidden;
     background-color: #f5e6d3;
+}
+body {
+    cursor: url('cursor.png'), auto;
+}
+
+/* 2. 再定义悬停样式 (注意顺序：hover 必须写在后面) */
+/* 确保你的图片路径正确，且文件小于 32x32 像素 */
+.pin:hover, button:hover {
+    cursor: url('cursor-hand.png'), pointer !important; 
 }
 
 .scene {
