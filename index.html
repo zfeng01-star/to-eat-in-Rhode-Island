@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>罗德岛美食地图</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="landing-page" class="scene active">
+        <img src="landing page backgroud.png" class="bg-img">
+        <button id="start-btn">
+            <img src="landing page button.png" alt="Start Explore">
+        </button>
+    </div>
+
+    <div id="map-page" class="scene">
+        <img src="page2 background.png" class="bg-img">
+        
+        <div class="map-container">
+            <div class="pin active" style="top: 60%; left: 40%;" data-food="oysters.png"></div>
+            <div class="pin" style="top: 25%; left: 30%;" data-food="cotton candy pork belly.png"></div>
+            <div class="pin" style="top: 26%; left: 33%;" data-food="fruit tart.png"></div>
+            <div class="pin" style="top: 26.5%; left: 30.5%;" data-food="ice jelly.png"></div>
+            <div class="pin" style="top: 27%; left: 29%;" data-food="kimchi hotpot.png"></div>
+            <div class="pin" style="top: 20%; left: 31%;" data-food="mala dry hotpot .png"></div>
+            <div class="pin" style="top: 33%; left: 32%;" data-food="Own Combo.png"></div>
+            <div class="pin" style="top: 32%; left: 31%;" data-food="oyakodon.png"></div>
+            <div class="pin" style="top: 29%; left: 32%;" data-food="shellfish sandwich.png"></div>
+        </div>
+
+        <div class="detail-container">
+            <img id="detail-img" src="oysters.png" alt="Food Detail">
+        </div>
+        <audio id="my-audio" loop preload="auto">
+            <source src="bgm.mp3" type="audio/mpeg">
+        </audio>
+    <script src="script.js"></script>
+ 
+</body>
+</html>
