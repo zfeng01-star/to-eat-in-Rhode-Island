@@ -1,0 +1,128 @@
+/* 基础设置 */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f5e6d3;
+}
+
+.scene {
+    display: none; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.scene.active {
+    display: block;
+}
+
+
+.bg-img {
+    position: absolute;
+    /* 核心修改：强制定位在 50% 的位置 */
+    top: 50%;
+    left: 50%;
+    /* 重点：宽度高度减去 20px，预留出上下左右各 10px 的缝隙 */
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    /* 偏移回中心 */
+    transform: translate(-50%, -50%);
+    
+    /* contain 确保图片不被裁剪，保留原比例 */
+    object-fit: contain; 
+    image-rendering: pixelated; 
+    z-index: 0;
+}
+
+.scene {
+    display: none; 
+    position: relative;
+    /* 重点：让内容区占据 98% 的宽高，上下左右自然就会留下空隙 */
+    width: calc(100vw - 20px); 
+    height: calc(100vh - 20px);
+    background-color: transparent;
+    /* 保证内容居中 */
+    margin: auto;
+}
+
+.scene.active {
+    display: block;
+}
+/* 首页按钮定位 */
+#start-btn {
+    position: absolute;
+    top: 40%; /* 按钮上下位置 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#start-btn:hover { transform: translate(-50%, -50%) scale(1.05); }
+#start-btn img { width: 180px; image-rendering: pixelated; }
+
+/* 地图点定位 */
+.map-container {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    /* 这里要根据你的图片比例手动调整，确保点落在地图上 */
+    /* 如果你的图是横向的，可以尝试 width: 80%; height: 80%; */
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.pin {
+    position: absolute;
+    width: 30px; /* 坐标点大小 */
+    height: 30px;
+    background-image: url('pin red.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    image-rendering: pixelated;
+    z-index: 10;
+}
+
+/* 被选中的坐标点（变白） */
+.pin.active {
+    background-image: url('pin white.png');
+}
+
+/* 右侧详情图定位 */
+.detail-container {
+    position: absolute;
+    right: 13%; /* 距离右边位置 */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 35%; /* 详情图占屏幕宽度的比例 */
+    width: 40%; /* 适当缩小一点，避免遮挡地图 */
+    z-index: 20;
+}
+
+#detail-img {
+    width: 100%;
+    image-rendering: pixelated;
+    animation: fadeIn 0.3s ease; /* 切换时的淡入动画 */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+#landing-page .bg-img {
+    margin-top: -5px; /* 数字越大越往上，你可以改成 -10px 或 -2px */
+}
+
+/* 如果第二页图片偏上，我们手动把它往下推一点 */
+#map-page .bg-img {
+    margin-top: 5px; /* 数字越大越往下 */
+}
